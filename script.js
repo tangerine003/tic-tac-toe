@@ -6,3 +6,6 @@ const gameBoard = (function createGameBoard() {
 const playerFactory = (name) => {
   return { name };
 };
+
+const playerOne = playerFactory("X");
+const playerTwo = playerFactory("O");
