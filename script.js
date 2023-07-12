@@ -1,5 +1,5 @@
 const gameBoard = (function createGameBoard() {
-  const gameBoardArray = [];
+  const gameBoardArray = ["X", "X", "O", "X", "O", "O", "X", "O", "X"];
   return { gameBoardArray };
 })();
 
