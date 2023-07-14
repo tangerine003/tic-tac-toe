@@ -20,5 +20,7 @@ const gameController = (function () {
   const playerOne = playerFactory("Declan", "X");
   const playerTwo = playerFactory("Theo", "O");
 
+  let activePlayer = playerOne;
+
   return {};
 })();
