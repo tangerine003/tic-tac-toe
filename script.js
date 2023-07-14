@@ -12,13 +12,13 @@ const gameBoard = (function createGameBoard() {
   return { gameBoardArray, printGameBoardArrayToConsole };
 })();
 
-const playerFactory = (name, token) => {
-  return { name, token };
-};
-
-const playerOne = playerFactory("Declan", "X");
-const playerTwo = playerFactory("Theo", "O");
-
 const gameController = (function () {
+  const playerFactory = (name, token) => {
+    return { name, token };
+  };
+
+  const playerOne = playerFactory("Declan", "X");
+  const playerTwo = playerFactory("Theo", "O");
+
   return {};
 })();
