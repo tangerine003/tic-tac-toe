@@ -18,3 +18,7 @@ const playerFactory = (name, token) => {
 
 const playerOne = playerFactory("Declan", "X");
 const playerTwo = playerFactory("Theo", "O");
+
+const gameController = (function () {
+  return {};
+})();
