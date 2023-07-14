@@ -12,9 +12,9 @@ const gameBoard = (function createGameBoard() {
   return { gameBoardArray, printGameBoardArrayToConsole };
 })();
 
-const playerFactory = (name) => {
-  return { name };
+const playerFactory = (name, token) => {
+  return { name, token };
 };
 
-const playerOne = playerFactory("X");
-const playerTwo = playerFactory("O");
+const playerOne = playerFactory("Declan", "X");
+const playerTwo = playerFactory("Theo", "O");
