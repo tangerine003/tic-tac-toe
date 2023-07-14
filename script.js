@@ -4,7 +4,12 @@ const gameBoard = (function createGameBoard() {
     ["X", "O", "O"],
     ["X", "O", "X"],
   ];
-  return { gameBoardArray };
+
+  const printGameBoardArrayToConsole = () => {
+    console.log(gameBoardArray);
+  };
+
+  return { gameBoardArray, printGameBoardArrayToConsole };
 })();
 
 const playerFactory = (name) => {
