@@ -30,5 +30,9 @@ const gameController = (function () {
 
   let activePlayer = playerOne;
 
+  let row = prompt("Enter the row, the cell you want to add token to,lies in");
+
+  let column = prompt("Enter the column, the cell you want to add token to,lies in");
+
   return {};
 })();
