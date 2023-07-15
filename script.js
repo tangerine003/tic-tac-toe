@@ -38,8 +38,6 @@ const gameController = (function () {
     column = prompt("Enter the column, the cell you want to add token to,lies in");
   };
 
-  gameBoard.addToken(activePlayer, { row, column });
-
   const playInitialRound = () => {
     promptLocation();
     gameBoard.addToken(activePlayer, { row, column });
