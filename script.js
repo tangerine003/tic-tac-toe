@@ -53,5 +53,11 @@ const gameController = (function () {
     gameBoard.printGameBoardArrayToConsole();
   };
 
+  playInitialRound();
+
+  while (playerOne.score != 1 && playerTwo.score != 1) {
+    playNewRound();
+  }
+
   return {};
 })();
