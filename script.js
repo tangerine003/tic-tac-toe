@@ -22,7 +22,8 @@ const gameBoard = (function createGameBoard() {
 
 const gameController = (function () {
   const playerFactory = (name, token) => {
-    return { name, token };
+    let score = 0;
+    return { name, token, score };
   };
 
   const playerOne = playerFactory("Declan", "X");
