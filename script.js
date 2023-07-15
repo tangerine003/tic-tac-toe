@@ -46,5 +46,12 @@ const gameController = (function () {
     gameBoard.printGameBoardArrayToConsole();
   };
 
+  const playNewRound = () => {
+    activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
+    promptLocation();
+    gameBoard.addToken(activePlayer, { row, column });
+    gameBoard.printGameBoardArrayToConsole();
+  };
+
   return {};
 })();
