@@ -9,7 +9,15 @@ const gameBoard = (function createGameBoard() {
     console.log(gameBoardArray);
   };
 
-  return { gameBoardArray, printGameBoardArrayToConsole };
+  const addToken = (player, location) => {
+    if (gameBoardArray[location.row][location.column] == "-") {
+      gameBoardArray[location.row][location.column] = player.token;
+    } else {
+      console.log("This cell is already marked, choose a new cell");
+    }
+  };
+
+  return { gameBoardArray, printGameBoardArrayToConsole, addToken };
 })();
 
 const gameController = (function () {
