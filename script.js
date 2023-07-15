@@ -40,5 +40,11 @@ const gameController = (function () {
 
   gameBoard.addToken(activePlayer, { row, column });
 
+  const playInitialRound = () => {
+    promptLocation();
+    gameBoard.addToken(activePlayer, { row, column });
+    gameBoard.printGameBoardArrayToConsole();
+  };
+
   return {};
 })();
