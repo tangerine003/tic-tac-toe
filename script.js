@@ -1,8 +1,8 @@
 const gameBoard = (function createGameBoard() {
   const gameBoardArray = [
-    ["X", "X", "O"],
-    ["X", "O", "O"],
-    ["X", "O", "X"],
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"],
   ];
 
   const printGameBoardArrayToConsole = () => {
