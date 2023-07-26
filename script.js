@@ -17,7 +17,9 @@ const gameBoard = (function createGameBoard() {
     }
   };
 
-  return { gameBoardArray, printGameBoardArrayToConsole, addToken };
+  const getBoard = () => gameBoardArray;
+
+  return { getBoard, printGameBoardArrayToConsole, addToken };
 })();
 
 const gameController = (function () {
@@ -38,10 +40,67 @@ const gameController = (function () {
     column = prompt("Enter the column, the cell you want to add token to,lies in");
   };
 
+  const checkForPatternMatch = (player, board) => {
+    const locationOfPlayerTokensOnBoard = [[], [], []];
+
+    board.forEach((row, row_index) => {
+      row.forEach((cell, cell_index) => {
+        if (cell == player.token)
+          locationOfPlayerTokensOnBoard[row_index][cell_index] = cell_index;
+      });
+    });
+
+    console.log(locationOfPlayerTokensOnBoard);
+
+    for (let i = 0; i < locationOfPlayerTokensOnBoard.length; i++) {
+      let tokenCountHorizontal = 0,
+        tokenCountVertical = 0,
+        tokenCountDiagonal = 0;
+
+      if (locationOfPlayerTokensOnBoard[i].length) {
+        tokenCountHorizontal = locationOfPlayerTokensOnBoard[i].reduce((count) => {
+          return count + 1;
+        }, 0);
+        if (tokenCountHorizontal == 3) player.score++;
+
+        for (let j = 0; j < locationOfPlayerTokensOnBoard[i].length; j++) {
+          if (locationOfPlayerTokensOnBoard[i][j] != null) {
+            if (
+              locationOfPlayerTokensOnBoard[i + 1] != null &&
+              locationOfPlayerTokensOnBoard[i + 2] != null
+            ) {
+              if (
+                locationOfPlayerTokensOnBoard[i][j] == j &&
+                locationOfPlayerTokensOnBoard[i + 1][j] == j &&
+                locationOfPlayerTokensOnBoard[i + 2][j] == j
+              ) {
+                tokenCountVertical = 3;
+                player.score++;
+              }
+
+              if (
+                (locationOfPlayerTokensOnBoard[i][j] == j &&
+                  locationOfPlayerTokensOnBoard[i + 1][j + 1] == j + 1 &&
+                  locationOfPlayerTokensOnBoard[i + 2][j + 2] == j + 2) ||
+                (locationOfPlayerTokensOnBoard[i][j] == j &&
+                  locationOfPlayerTokensOnBoard[i + 1][j - 1] == j - 1 &&
+                  locationOfPlayerTokensOnBoard[i + 2][j - 2] == j - 2)
+              ) {
+                tokenCountDiagonal = 3;
+                player.score++;
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
   const playInitialRound = () => {
     promptLocation();
     gameBoard.addToken(activePlayer, { row, column });
     gameBoard.printGameBoardArrayToConsole();
+    checkForPatternMatch(activePlayer, gameBoard.getBoard());
   };
 
   const playNewRound = () => {
@@ -49,6 +108,7 @@ const gameController = (function () {
     promptLocation();
     gameBoard.addToken(activePlayer, { row, column });
     gameBoard.printGameBoardArrayToConsole();
+    checkForPatternMatch(activePlayer, gameBoard.getBoard());
   };
 
   playInitialRound();
