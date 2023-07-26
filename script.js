@@ -113,7 +113,7 @@ const gameController = (function () {
 
   playInitialRound();
 
-  while (playerOne.score != 1 && playerTwo.score != 1) {
+  while (!(playerOne.score >= 1) && !(playerTwo.score >= 1)) {
     playNewRound();
   }
 
