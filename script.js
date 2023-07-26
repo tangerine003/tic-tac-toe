@@ -117,5 +117,11 @@ const gameController = (function () {
     playNewRound();
   }
 
+  if (playerOne.score >= 1)
+    console.log(`${playerOne.name} wins and the score is ${playerOne.score}`);
+
+  if (playerTwo.score >= 1)
+    console.log(`${playerTwo.name} wins and the score is ${playerTwo.score}`);
+
   return {};
 })();
