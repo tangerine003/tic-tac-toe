@@ -142,9 +142,9 @@ const gameController = (function () {
 
   if (playerOne.score >= 1)
     console.log(`${playerOne.name} wins and the score is ${playerOne.score}`);
-
-  if (playerTwo.score >= 1)
+  else if (playerTwo.score >= 1)
     console.log(`${playerTwo.name} wins and the score is ${playerTwo.score}`);
+  else console.log("No player won and hence it's a tie");
 
   return {};
 })();
