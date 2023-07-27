@@ -12,8 +12,10 @@ const gameBoard = (function createGameBoard() {
   const addToken = (player, location) => {
     if (gameBoardArray[location.row][location.column] == "-") {
       gameBoardArray[location.row][location.column] = player.token;
+      return true;
     } else {
       console.log("This cell is already marked, choose a new cell");
+      return false;
     }
   };
 
@@ -106,7 +108,11 @@ const gameController = (function () {
   const playNewRound = () => {
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
     promptLocation();
-    gameBoard.addToken(activePlayer, { row, column });
+    let isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
+    while (!isTokenAdded) {
+      promptLocation();
+      isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
+    }
     gameBoard.printGameBoardArrayToConsole();
     checkForPatternMatch(activePlayer, gameBoard.getBoard());
   };
