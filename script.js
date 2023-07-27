@@ -111,6 +111,25 @@ const gameController = (function () {
     checkForPatternMatch(activePlayer, gameBoard.getBoard());
   };
 
+  const checkIfGameBoardArrayIsFull = () => {
+    let isBoardFull = true;
+
+    const board = gameBoard.getBoard();
+
+    for (let i = 0; i < board.length; i++) {
+      let tokensInRow = board[i].reduce((count, value) => {
+        if (value == playerOne.token || value == playerTwo.token) return count + 1;
+      }, 0);
+
+      if (tokensInRow < 3) {
+        isBoardFull = false;
+        break;
+      }
+    }
+
+    return isBoardFull;
+  };
+
   playInitialRound();
 
   while (!(playerOne.score >= 1) && !(playerTwo.score >= 1)) {
