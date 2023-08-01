@@ -125,6 +125,7 @@ const gameController = (function () {
     for (let i = 0; i < board.length; i++) {
       let tokensInRow = board[i].reduce((count, value) => {
         if (value == playerOne.token || value == playerTwo.token) return count + 1;
+        else return count;
       }, 0);
 
       if (tokensInRow < 3) {
