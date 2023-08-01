@@ -153,5 +153,5 @@ const gameController = (function () {
     console.log(`${playerTwo.name} wins and the score is ${playerTwo.score}`);
   else console.log("No player won and hence it's a tie");
 
-  return {};
+  return { playInitialRound, playNewRound };
 })();
