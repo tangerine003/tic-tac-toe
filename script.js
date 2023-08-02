@@ -156,4 +156,20 @@ const gameController = (function () {
   return { playInitialRound, playNewRound };
 })();
 
-const displayController = (function () {})();
+const displayController = (function () {
+  const createBoard = () => {
+    const boardDiv = document.querySelector(".tic-tac-toe-grid");
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement("button");
+        cell.setAttribute("data-row", `${i}`);
+        cell.setAttribute("data-column", `${j}`);
+        cell.classList.add("cell");
+        cell.addEventListener("click", boardClickHandler);
+        boardDiv.appendChild(cell);
+      }
+    }
+  };
+
+  createBoard();
+})();
