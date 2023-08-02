@@ -35,13 +35,6 @@ const gameController = (function () {
 
   let activePlayer = playerOne;
 
-  let row, column;
-
-  const promptLocation = () => {
-    row = prompt("Enter the row, the cell you want to add token to,lies in");
-    column = prompt("Enter the column, the cell you want to add token to,lies in");
-  };
-
   const checkForPatternMatch = (player, board) => {
     const locationOfPlayerTokensOnBoard = [[], [], []];
 
@@ -99,7 +92,6 @@ const gameController = (function () {
   };
 
   const playInitialRound = () => {
-    promptLocation();
     gameBoard.addToken(activePlayer, { row, column });
     gameBoard.printGameBoardArrayToConsole();
     checkForPatternMatch(activePlayer, gameBoard.getBoard());
@@ -107,10 +99,9 @@ const gameController = (function () {
 
   const playNewRound = () => {
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
-    promptLocation();
+
     let isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
     while (!isTokenAdded) {
-      promptLocation();
       isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
     }
     gameBoard.printGameBoardArrayToConsole();
