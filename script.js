@@ -91,13 +91,13 @@ const gameController = (function () {
     }
   };
 
-  const playInitialRound = () => {
+  const playInitialRound = (row, column) => {
     gameBoard.addToken(activePlayer, { row, column });
     gameBoard.printGameBoardArrayToConsole();
     checkForPatternMatch(activePlayer, gameBoard.getBoard());
   };
 
-  const playNewRound = () => {
+  const playNewRound = (row, column) => {
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
 
     let isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
