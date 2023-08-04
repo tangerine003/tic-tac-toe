@@ -33,7 +33,7 @@ const gameController = (function () {
   const playerOne = playerFactory("Declan", "X");
   const playerTwo = playerFactory("Theo", "O");
 
-  let activePlayer = playerOne;
+  let activePlayer = playerTwo;
 
   const checkForPatternMatch = (player, board) => {
     const locationOfPlayerTokensOnBoard = [[], [], []];
@@ -99,12 +99,6 @@ const gameController = (function () {
     return patternMatch;
   };
 
-  const playInitialRound = (row, column) => {
-    gameBoard.addToken(activePlayer, { row, column });
-    gameBoard.printGameBoardArrayToConsole();
-    checkForPatternMatch(activePlayer, gameBoard.getBoard());
-  };
-
   const playNewRound = (row, column) => {
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
 
@@ -138,7 +132,7 @@ const gameController = (function () {
     return isBoardFull;
   };
 
-  return { playInitialRound, playNewRound };
+  return { playNewRound };
 })();
 
 const displayController = (function () {
