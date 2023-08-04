@@ -182,5 +182,12 @@ const displayController = (function () {
     }
   };
 
+  const updateBoard = (row, column) => {
+    const cell = document.querySelector(
+      `button[data-row="${row}"][data-column="${column}"]`
+    );
+    cell.textContent = gameController.getActivePlayer().token;
+  };
+
   createBoard();
 })();
