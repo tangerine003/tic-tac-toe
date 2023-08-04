@@ -175,10 +175,10 @@ const displayController = (function () {
   const unhighlightActivePlayer = () => {
     if (gameController.getActivePlayer().name == "Declan") {
       const activePlayerHighlight = document.querySelector(".player:first-of-type");
-      activePlayerHighlight.style.backgroundColor = "white";
+      activePlayerHighlight.classList.remove("player-highlight");
     } else {
       const activePlayerHighlight = document.querySelector(".player:last-of-type");
-      activePlayerHighlight.style.backgroundColor = "white";
+      activePlayerHighlight.classList.remove("player-highlight");
     }
   };
 
