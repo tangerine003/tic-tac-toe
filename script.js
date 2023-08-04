@@ -132,7 +132,9 @@ const gameController = (function () {
     return isBoardFull;
   };
 
-  return { playRound };
+  const getActivePlayer = () => activePlayer;
+
+  return { playRound, getActivePlayer };
 })();
 
 const displayController = (function () {
