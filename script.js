@@ -165,10 +165,10 @@ const displayController = (function () {
   const highlightNextPlayer = () => {
     if (gameController.getActivePlayer().name == "Declan") {
       const activePlayerHighlight = document.querySelector(".player:last-of-type");
-      activePlayerHighlight.classList.add("player");
+      activePlayerHighlight.classList.add("player-highlight");
     } else {
       const activePlayerHighlight = document.querySelector(".player:first-of-type");
-      activePlayerHighlight.classList.add("player");
+      activePlayerHighlight.classList.add("player-highlight");
     }
   };
 
