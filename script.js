@@ -99,7 +99,7 @@ const gameController = (function () {
     return patternMatch;
   };
 
-  const playNewRound = (row, column) => {
+  const playRound = (row, column) => {
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
 
     let isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
@@ -132,7 +132,7 @@ const gameController = (function () {
     return isBoardFull;
   };
 
-  return { playNewRound };
+  return { playRound };
 })();
 
 const displayController = (function () {
