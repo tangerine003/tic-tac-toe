@@ -152,5 +152,15 @@ const displayController = (function () {
     }
   };
 
+  const updateScore = () => {
+    if (gameController.getActivePlayer().name == "Declan") {
+      const playerScore = document.querySelector(".player-one-score");
+      playerScore.textContent = gameController.getActivePlayer().score;
+    } else {
+      const playerScore = document.querySelector(".player-two-score");
+      playerScore.textContent = gameController.getActivePlayer().score;
+    }
+  };
+
   createBoard();
 })();
