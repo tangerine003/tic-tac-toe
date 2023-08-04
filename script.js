@@ -189,5 +189,59 @@ const displayController = (function () {
     cell.textContent = gameController.getActivePlayer().token;
   };
 
+  const boardClickHandler = (e) => {
+    if (!e.target.textContent) {
+      const gameOver = gameController.playRound(
+        e.target.getAttribute("data-row"),
+        e.target.getAttribute("data-column")
+      );
+
+      updateBoard(
+        e.target.getAttribute("data-row"),
+        e.target.getAttribute("data-column")
+      );
+
+      unhighlightActivePlayer();
+
+      updateScore();
+
+      if (Number(gameOver)) {
+        const body = document.querySelector("body");
+
+        const dialog = document.createElement("dialog");
+        const gameResultMessage = document.createElement("div");
+        gameResultMessage.classList.add("game-result-message");
+
+        if (Number(gameOver[0]) && Number(gameOver[1])) {
+          gameResultMessage.textContent = `${
+            gameController.getActivePlayer().name
+          } won`;
+        } else {
+          if (Number(gameOver[0]) == 1)
+            gameResultMessage.textContent = `${
+              gameController.getActivePlayer().name
+            } won`;
+
+          if (Number(gameOver[1]) == 1)
+            gameResultMessage.textContent = "A Tie has occurred";
+        }
+
+        const playNewGameButton = document.createElement("a");
+        playNewGameButton.classList.add("play-again-button");
+        playNewGameButton.setAttribute("href", "index.html");
+        playNewGameButton.textContent = "Play New Game";
+
+        dialog.appendChild(gameResultMessage);
+        dialog.appendChild(playNewGameButton);
+        body.appendChild(dialog);
+        dialog.showModal();
+      } else {
+        setTimeout(highlightNextPlayer, 200);
+      }
+    }
+  };
+
   createBoard();
+
+  highlightNextPlayer();
 })();
