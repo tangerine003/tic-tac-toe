@@ -172,5 +172,15 @@ const displayController = (function () {
     }
   };
 
+  const unhighlightActivePlayer = () => {
+    if (gameController.getActivePlayer().name == "Declan") {
+      const activePlayerHighlight = document.querySelector(".player:first-of-type");
+      activePlayerHighlight.style.backgroundColor = "white";
+    } else {
+      const activePlayerHighlight = document.querySelector(".player:last-of-type");
+      activePlayerHighlight.style.backgroundColor = "white";
+    }
+  };
+
   createBoard();
 })();
