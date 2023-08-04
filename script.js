@@ -47,6 +47,8 @@ const gameController = (function () {
 
     console.log(locationOfPlayerTokensOnBoard);
 
+    let patternMatch = false;
+
     for (let i = 0; i < locationOfPlayerTokensOnBoard.length; i++) {
       let tokenCountHorizontal = 0,
         tokenCountVertical = 0,
@@ -56,7 +58,10 @@ const gameController = (function () {
         tokenCountHorizontal = locationOfPlayerTokensOnBoard[i].reduce((count) => {
           return count + 1;
         }, 0);
-        if (tokenCountHorizontal == 3) player.score++;
+        if (tokenCountHorizontal == 3) {
+          player.score++;
+          patternMatch = true;
+        }
 
         for (let j = 0; j < locationOfPlayerTokensOnBoard[i].length; j++) {
           if (locationOfPlayerTokensOnBoard[i][j] != null) {
@@ -71,6 +76,7 @@ const gameController = (function () {
               ) {
                 tokenCountVertical = 3;
                 player.score++;
+                patternMatch = true;
               }
 
               if (
@@ -83,12 +89,14 @@ const gameController = (function () {
               ) {
                 tokenCountDiagonal = 3;
                 player.score++;
+                patternMatch = true;
               }
             }
           }
         }
       }
     }
+    return patternMatch;
   };
 
   const playInitialRound = (row, column) => {
