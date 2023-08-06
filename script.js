@@ -241,7 +241,18 @@ const displayController = (function () {
     }
   };
 
-  createBoard();
+  const startGame = () => {
+    const enterUserDetailsDialogBox = document.querySelector(
+      ".player-details-dialog"
+    );
+    enterUserDetailsDialogBox.showModal();
+    const startGameButton = document.querySelector(".start-game-button");
+    startGameButton.addEventListener("click", () => {
+      enterUserDetailsDialogBox.close();
+      createBoard();
+      highlightNextPlayer();
+    });
+  };
 
-  highlightNextPlayer();
+  startGame();
 })();
