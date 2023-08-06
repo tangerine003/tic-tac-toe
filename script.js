@@ -261,7 +261,43 @@ const displayController = (function () {
       const playerOName = document.querySelector("input#player-o-name");
       storePlayerNames(playerXName.value, playerOName.value);
       enterUserDetailsDialogBox.close();
+
+      const playerXDiv = document.querySelector(".player:first-of-type");
+
+      const playerXNameElement = document.createElement("h3");
+      playerXNameElement.textContent = `Player One(X): ${playerXName.value}`;
+
+      const playerXScoreElement = document.createElement("h3");
+      playerXScoreElement.textContent = `Score: `;
+
+      const playerXScore = document.createElement("span");
+      playerXScore.textContent = `0`;
+      playerXScore.classList.add("player-one-score");
+
+      playerXScoreElement.appendChild(playerXScore);
+
+      playerXDiv.appendChild(playerXNameElement);
+      playerXDiv.appendChild(playerXScoreElement);
+
+      const playerODiv = document.querySelector(".player:last-of-type");
+
+      const playerONameElement = document.createElement("h3");
+      playerONameElement.textContent = `Player Two(O): ${playerOName.value}`;
+
+      const playerOScoreElement = document.createElement("h3");
+      playerOScoreElement.textContent = `Score: `;
+
+      const playerOScore = document.createElement("span");
+      playerOScore.textContent = `0`;
+      playerOScore.classList.add("player-one-score");
+
+      playerOScoreElement.appendChild(playerOScore);
+
+      playerODiv.appendChild(playerONameElement);
+      playerODiv.appendChild(playerOScoreElement);
+
       createBoard();
+
       highlightNextPlayer();
     });
   };
