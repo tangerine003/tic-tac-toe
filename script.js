@@ -176,20 +176,20 @@ const displayController = (function () {
   const highlightNextPlayer = () => {
     if (gameController.getActivePlayer().name == "Player X") {
       const activePlayerHighlight = document.querySelector(".player:last-of-type");
-      activePlayerHighlight.classList.add("player-highlight");
+      activePlayerHighlight.style.backgroundColor = "rgb(255 122 245)";
     } else {
       const activePlayerHighlight = document.querySelector(".player:first-of-type");
-      activePlayerHighlight.classList.add("player-highlight");
+      activePlayerHighlight.style.backgroundColor = "rgb(212 143 255)";
     }
   };
 
   const unhighlightActivePlayer = () => {
     if (gameController.getActivePlayer().name == "Player X") {
       const activePlayerHighlight = document.querySelector(".player:first-of-type");
-      activePlayerHighlight.classList.remove("player-highlight");
+      activePlayerHighlight.style.backgroundColor = "white";
     } else {
       const activePlayerHighlight = document.querySelector(".player:last-of-type");
-      activePlayerHighlight.classList.remove("player-highlight");
+      activePlayerHighlight.style.backgroundColor = "white";
     }
   };
 
