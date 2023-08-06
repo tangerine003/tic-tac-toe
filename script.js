@@ -301,7 +301,7 @@ const displayController = (function () {
 
       const playerOScore = document.createElement("span");
       playerOScore.textContent = `0`;
-      playerOScore.classList.add("player-one-score");
+      playerOScore.classList.add("player-two-score");
 
       playerOScoreElement.appendChild(playerOScore);
 
