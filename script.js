@@ -197,6 +197,11 @@ const displayController = (function () {
     const cell = document.querySelector(
       `button[data-row="${row}"][data-column="${column}"]`
     );
+    if (gameController.getActivePlayer().name == "Player X") {
+      cell.style.color = "rgb(170 60 238)";
+    } else {
+      cell.style.color = "rgb(203 37 191)";
+    }
     cell.textContent = gameController.getActivePlayer().token;
   };
 
