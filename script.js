@@ -218,12 +218,12 @@ const displayController = (function () {
 
         if (Number(gameOver[0]) && Number(gameOver[1])) {
           gameResultMessage.textContent = `${
-            gameController.getActivePlayer().name
+            gameController.getActivePlayer().userEnteredName
           } won`;
         } else {
           if (Number(gameOver[0]) == 1)
             gameResultMessage.textContent = `${
-              gameController.getActivePlayer().name
+              gameController.getActivePlayer().userEnteredName
             } won`;
 
           if (Number(gameOver[1]) == 1)
