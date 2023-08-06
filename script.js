@@ -30,8 +30,8 @@ const gameController = (function () {
     return { name, token, score };
   };
 
-  const playerOne = playerFactory("Declan", "X");
-  const playerTwo = playerFactory("Theo", "O");
+  const playerOne = playerFactory("Player X", "X");
+  const playerTwo = playerFactory("Player O", "O");
 
   let activePlayer = playerTwo;
 
@@ -157,7 +157,7 @@ const displayController = (function () {
   };
 
   const updateScore = () => {
-    if (gameController.getActivePlayer().name == "Declan") {
+    if (gameController.getActivePlayer().name == "Player X") {
       const playerScore = document.querySelector(".player-one-score");
       playerScore.textContent = gameController.getActivePlayer().score;
     } else {
@@ -167,7 +167,7 @@ const displayController = (function () {
   };
 
   const highlightNextPlayer = () => {
-    if (gameController.getActivePlayer().name == "Declan") {
+    if (gameController.getActivePlayer().name == "Player X") {
       const activePlayerHighlight = document.querySelector(".player:last-of-type");
       activePlayerHighlight.classList.add("player-highlight");
     } else {
@@ -177,7 +177,7 @@ const displayController = (function () {
   };
 
   const unhighlightActivePlayer = () => {
-    if (gameController.getActivePlayer().name == "Declan") {
+    if (gameController.getActivePlayer().name == "Player X") {
       const activePlayerHighlight = document.querySelector(".player:first-of-type");
       activePlayerHighlight.classList.remove("player-highlight");
     } else {
