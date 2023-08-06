@@ -150,6 +150,13 @@ const displayController = (function () {
         cell.setAttribute("data-row", `${i}`);
         cell.setAttribute("data-column", `${j}`);
         cell.classList.add("cell");
+        if ((j == 1) & (i == 1)) {
+          cell.style.borderWidth = "8px 8px";
+        } else {
+          if (j == 1) cell.style.borderWidth = "0px 8px";
+
+          if (i == 1) cell.style.borderWidth = "8px 0px";
+        }
         cell.addEventListener("click", boardClickHandler);
         boardDiv.appendChild(cell);
       }
