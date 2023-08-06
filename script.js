@@ -134,7 +134,11 @@ const gameController = (function () {
 
   const getActivePlayer = () => activePlayer;
 
-  return { playRound, getActivePlayer };
+  const getPlayerOne = () => playerOne;
+
+  const getPlayerTwo = () => playerTwo;
+
+  return { playRound, getActivePlayer, getPlayerOne, getPlayerTwo };
 })();
 
 const displayController = (function () {
@@ -241,6 +245,11 @@ const displayController = (function () {
     }
   };
 
+  const storePlayerNames = (playerX, playerO) => {
+    gameController.getPlayerOne().userEnteredName = playerX;
+    gameController.getPlayerTwo().userEnteredName = playerO;
+  };
+
   const startGame = () => {
     const enterUserDetailsDialogBox = document.querySelector(
       ".player-details-dialog"
@@ -248,6 +257,9 @@ const displayController = (function () {
     enterUserDetailsDialogBox.showModal();
     const startGameButton = document.querySelector(".start-game-button");
     startGameButton.addEventListener("click", () => {
+      const playerXName = document.querySelector("input#player-x-name");
+      const playerOName = document.querySelector("input#player-o-name");
+      storePlayerNames(playerXName.value, playerOName.value);
       enterUserDetailsDialogBox.close();
       createBoard();
       highlightNextPlayer();
