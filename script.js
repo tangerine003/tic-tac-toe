@@ -274,6 +274,13 @@ const displayController = (function () {
       storePlayerNames(playerXName.value, playerOName.value);
       enterUserDetailsDialogBox.close();
 
+      const header = document.querySelector("header");
+
+      const gameName = document.createElement("h1");
+      gameName.textContent = "Tic Tac Toe";
+
+      header.appendChild(gameName);
+
       const playerXDiv = document.querySelector(".player:first-of-type");
 
       const playerXNameElement = document.createElement("h3");
