@@ -21,17 +21,17 @@ const gameBoard = (function createGameBoard() {
 })();
 
 const gameController = (function () {
-  const playerFactory = (name, token) => {
+  const _playerFactory = (name, token) => {
     let score = 0;
     return { name, token, score };
   };
 
-  const playerOne = playerFactory("Player X", "X");
-  const playerTwo = playerFactory("Player O", "O");
+  const playerOne = _playerFactory("Player X", "X");
+  const playerTwo = _playerFactory("Player O", "O");
 
   let activePlayer = playerTwo;
 
-  const checkForPatternMatch = (player, board) => {
+  const _checkForPatternMatch = (player, board) => {
     const locationOfPlayerTokensOnBoard = [[], [], []];
 
     board.forEach((row, row_index) => {
@@ -103,12 +103,12 @@ const gameController = (function () {
       isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
     }
     gameBoard.printGameBoardArrayToConsole();
-    const patternMatch = checkForPatternMatch(activePlayer, gameBoard.getBoard());
-    const isBoardFull = checkIfGameBoardArrayIsFull();
+    const patternMatch = _checkForPatternMatch(activePlayer, gameBoard.getBoard());
+    const isBoardFull = _checkIfGameBoardArrayIsFull();
     return `${Number(patternMatch)}${Number(isBoardFull)}`;
   };
 
-  const checkIfGameBoardArrayIsFull = () => {
+  const _checkIfGameBoardArrayIsFull = () => {
     let isBoardFull = true;
 
     const board = gameBoard.getBoard();
