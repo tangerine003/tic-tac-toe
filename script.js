@@ -233,21 +233,21 @@ const displayController = (function () {
         if (Number(gameOver[0]) && Number(gameOver[1])) {
           gameResultMessage.textContent = `${
             gameController.getActivePlayer().userEnteredName
-          } won`;
+          } won !`;
         } else {
           if (Number(gameOver[0]) == 1)
             gameResultMessage.textContent = `${
               gameController.getActivePlayer().userEnteredName
-            } won`;
+            } won !`;
 
           if (Number(gameOver[1]) == 1)
-            gameResultMessage.textContent = "A Tie has occurred";
+            gameResultMessage.textContent = "A tie has occurred";
         }
 
         const playNewGameButton = document.createElement("a");
         playNewGameButton.classList.add("play-again-button");
         playNewGameButton.setAttribute("href", "index.html");
-        playNewGameButton.textContent = "Play New Game";
+        playNewGameButton.textContent = "PLAY NEW GAME";
 
         dialog.appendChild(gameResultMessage);
         dialog.appendChild(playNewGameButton);
