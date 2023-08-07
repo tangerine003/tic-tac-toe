@@ -225,6 +225,8 @@ const displayController = (function () {
         const body = document.querySelector("body");
 
         const dialog = document.createElement("dialog");
+        dialog.classList.add("game-result");
+
         const gameResultMessage = document.createElement("div");
         gameResultMessage.classList.add("game-result-message");
 
