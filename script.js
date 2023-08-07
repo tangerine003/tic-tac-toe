@@ -5,10 +5,6 @@ const gameBoard = (function createGameBoard() {
     ["-", "-", "-"],
   ];
 
-  const printGameBoardArrayToConsole = () => {
-    console.log(gameBoardArray);
-  };
-
   const addToken = (player, location) => {
     if (gameBoardArray[location.row][location.column] == "-") {
       gameBoardArray[location.row][location.column] = player.token;
@@ -21,7 +17,7 @@ const gameBoard = (function createGameBoard() {
 
   const getBoard = () => gameBoardArray;
 
-  return { getBoard, printGameBoardArrayToConsole, addToken };
+  return { getBoard, addToken };
 })();
 
 const gameController = (function () {
