@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header></header>
+
+    <dialog class="player-details-dialog">
+      <h2>Tic Tac Toe</h2>
+      <form action="" class="player-details-form">
+        <label for="player-x-name"
+          >Player X name* :
+          <input type="text" id="player-x-name" required autocomplete="off"
+        /></label>
+        <label for="player-o-name"
+          >Player O name* :
+          <input type="text" id="player-o-name" required autocomplete="off"
+        /></label>
+        <button class="start-game-button" type="button">START GAME</button>
+      </form>
+    </dialog>
+
+    <div class="container">
+      <div class="player"></div>
+      <div class="tic-tac-toe-grid"></div>
+      <div class="player"></div>
+    </div>
+  </body>
+</html>
