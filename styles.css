@@ -107,3 +107,14 @@ h2 {
   padding: 0 2em;
   text-decoration: none;
 }
+
+@media (max-width: 730px) {
+  .container {
+    flex-direction: column;
+    gap: 1.8em;
+  }
+
+  body {
+    gap: 2em;
+  }
+}
