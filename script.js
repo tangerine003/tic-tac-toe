@@ -102,7 +102,6 @@ const gameController = (function () {
     while (!isTokenAdded) {
       isTokenAdded = gameBoard.addToken(activePlayer, { row, column });
     }
-    gameBoard.printGameBoardArrayToConsole();
     const patternMatch = _checkForPatternMatch(activePlayer, gameBoard.getBoard());
     const isBoardFull = _checkIfGameBoardArrayIsFull();
     return `${Number(patternMatch)}${Number(isBoardFull)}`;
